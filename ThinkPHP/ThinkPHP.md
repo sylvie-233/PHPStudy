@@ -1,7 +1,7 @@
 # ThinkPHP
 
 >
->`#TODO 【李炎恢】ThinkPHP8.x | 后端框架课程 | 已完结 | 共50p P31`
+>
 >
 
 ## 基础介绍
@@ -9,6 +9,9 @@
 ### think
 ```yaml
 think:
+    make:controller: 资源控制器
+    make:middleware: 中间件
+    make:validator: 验证器
     run: 运行
 ```
 
@@ -18,7 +21,9 @@ think:
     /app:
         /controller:
             Index.php:
+        /middleware:
         /model:
+        /validate:
         .htaccess:
         AppService.php:
         BaseController.php:
@@ -50,8 +55,12 @@ think:
         .htaccess:
     /route:
     /runtime:
+        /cache:
+        /log:
+        /session:
+        /storage:
     /vendor:
-    /view:
+    /view: 视图模板
     .example.env:
     .travis.yml:
     composer.json:
@@ -79,7 +88,10 @@ route.php:
 ```yaml
 app:
     BaseController:
-
+        $middleware:
+        validate():
+    Request:
+        $filter:
 think:
     db:
         Query:
@@ -112,6 +124,8 @@ think:
             whereRaw():
             withAttr():
     facade:
+        Cache:
+        Cookie:
         Db:
             execute():
             getLastSql():
@@ -122,14 +136,70 @@ think:
             startTrans():
             table():
             transaction():
-            
+        Filesystem:
+        Request:
+        Route:
+            allowCrossDomain():
+            delete():
+            domain():
+            ext():
+            get():
+            group():
+            https():
+            middleware():
+            miss():
+            only():
+            option():
+            pattern():
+            prefix():
+            resource():
+            rest():
+            rule():
+            token():
+            vars():
+        Session:
+        View:
+            engine():
+            fetch():
+    file:
+        UploadedFile:
+    middleware:
+        SessionInit:
     model:
         concern:
             SoftDelete:
+        Pivot: 中间表
+    paginator:
+        driver:
+            Bootstrap:
+                render():
+                total():
     App:
         getBasePath():
+    Cache:
+        clear():
+        delete():
+        get():
+        inc():
+        pull():
+        push():
+        set():
+        tag():
     Collection:
         toArray():
+    Cookie:
+        get():
+        set():
+    Filesystem:
+        putFile():
+    Image:
+        crop():
+        open():
+        rotate():
+        save():
+        thumb():
+        water():
+        width():
     Model: 模型
         $disuse:
         $name:
@@ -137,15 +207,18 @@ think:
         $readonly:
         $schema:
         allowField():
+        attach():
         belongsToMany():
         count():
         create():
         delete():
         destory():
+        detach():
         find():
         force():
         getData():
         getFieldAttr():
+        has():
         hasMany():
         hasOne():
         hasWhere():
@@ -154,21 +227,71 @@ think:
         onEvent():
         onlyTrashed():
         order():
+        paginate():
         replace():
         save():
         saveAll():
         searchFieldAttr():
         select():
         setFieldAttr():
+        together():
         update():
+        visible():
         where():
+        with(): 预加载
         withAttr():
+        withCount():
         withSearch():
         withTrashed():
     Request:
         action():
+        buildToken():
+        checkToken():
+        file():
+        has():
+        host():
+        isPost():
+        method():
+        only():
+        param():
+        post():
+        session():
+        url():
+    Response:
+        code():
+    Session:
+        all():
+        clear():
+        delete():
+        get():
+        has():
+        pull():
+        set():
+    Validate:
+        $message:
+        $rule:
+            email:
+            file:
+            max:
+            require:
+        $scene:
+        batch():
+        check():
+        getError():
+        isNumber():
+        rule():
+        scene():
+    captcha_check():
+    cookie():
     env():
+    input():
     json():
+    redirect():
+    request():
+    response():
+    session():
+    url():
+    view():
 ```
 
 
@@ -191,7 +314,9 @@ think:
 #### 响应
 
 
-#### 中间件
+
+
+### 中间件
 
 
 

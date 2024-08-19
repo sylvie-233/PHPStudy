@@ -3,20 +3,41 @@
 ## 基础介绍
 
 
+### php
+```yaml
+php:
+    -r:
+```
+
 
 
 
 ## 核心内容
 ```yaml
+Affecting PHP's Behaviour:
+    Error Handling and Logging:
+        trigger_error(): 生成错误信息
+File System Related Extensions:
+    Filesystem:
+        copy(): 复制文件
+        dirname(): 获取目录
+        file_exists(): 文件存在判断
+        unlink(): 删除文件
+Other Basic Extensions:
+    SPL:
+        spl_autoload_register(): 自定义autoload
 Text Processing:
     Strings:
-        echo: 输出字符串
+        echo(): 输出字符串
+        strtr(): 字符串替换
 
 Variable and Type Related Extensions:
     Array:
-        array: 创建数组
+        array(): 创建数组
     Class/Object Information:
-        is_subclass_of:
+        is_subclass_of():
+    Function Handling:
+        call_user_func():
 ```
 
 ### 预定义
