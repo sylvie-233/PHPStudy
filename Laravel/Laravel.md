@@ -1,7 +1,7 @@
 # Laravel
 
 >
->`#TODO 30 Days to Learn Laravel P6`
+>`#TODO 30 Days to Learn Laravel P21`
 >
 
 ## 基础介绍
@@ -13,9 +13,24 @@ laravel:
 
 artisan:
     db:seed: 数据库填充
+    help: 帮助命令
     key:generate: 生成APP_KEY
+    make:controller: 生成控制器
+    make:factory: 生成工厂模型
+    make:mail:
+    make:migration: 生成数据库迁移
+    make:model: 生成模型
+        -m: 生成迁移文件
+    make:policy:
     migrate: 数据库迁移
+    migrate:fresh:
+        --seed:
+    migrate:refresh: 重置迁移
+    queue:work:
+    route:list:
     serve: 开启服务
+    tinker: shell交互
+    vender:publish:
 ```
 
 ### 目录结构
@@ -24,7 +39,9 @@ laravel:
     /app:
         /Http:
             /Controllers:
+        /Mail:
         /Models:
+        /Policies: Gate封装
         /Providers:
     /bootstrap:
         /cache:
@@ -42,9 +59,9 @@ laravel:
         services.php:
         session.php:
     /database:
-        /factories:
-        /migraions:
-        /seeders:
+        /factories: 使用模型工厂生成假数据（到数据库）
+        /migraions: 数据库迁移
+        /seeders: 数据库填充(使用factory填充)
     /public:
     /resources:
         /css:
@@ -77,24 +94,55 @@ laravel:
 ```yaml
 Illuminate:
     Auth:
+        Access:
+            Gate:
     Broadcasting:
     Bus:
+        Queueable:
     Cache:
     Config:
     Console:
     Container:
     Contracts:
+        Auth:
+            attempt(): 尝试登录
+            guest():
+            login(): 登录
+            logout():
+            user():
+        Queue:
+            ShouldQueue:
     Cookie:
     Database:
-        Eloquent:
+        Eloquent: ORM框架
+            Collection:
             Factories:
                 HasFactory:
-                    create():
+                    create(): 生成假数据
                     factory():
+            Model: ORM模型
+                $fillable:
+                $table:
+                all():
+                attach():
+                belongsTo(): 属于关联
+                belongsToMany():  多对多关联
+                create():
+                delete():
+                find():
+                hasMany(): 拥有管理
+                hasOne():
+                links(): 分页链接
+                paginate():
+                preventLazyLoading(): 禁用懒加载
+                save():
+                update():
+                with(): 预加载关联模型
         Migrations:
             Migration:
         Schema:
             Blueprint:
+                foreignIdFor(): 外键定义
                 id():
                 nullable():
                 string():
@@ -126,13 +174,23 @@ Illuminate:
     Http:
         Request:
             is(): url匹配
+            validate(): 字段校验
     Log:
     Mail:
+        Mailables:
+            Content:
+                view:
+            Envelope:
+        Mailable:
     Notifications:
     Pagination:
+        Paginator:
+            defaultView():
+            userBootstrap():
     Pipeline:
     Process:
     Queue:
+        SerializesModels:
     Redis:
     Routing:
     Session:
@@ -142,11 +200,28 @@ Illuminate:
             Artisan:
             Blade:
                 component(): 注册组件
+            Gate: 验证拦截
+                authorize():
+                define():
             Hash:
+            Mail:
+                queue():
+                send():
+                to():
             Route:
+                controller():
                 get():
+                group():
+                middleware():
+                post():
+                resource(): 
+                view():
             Schema:
                 create():
+            Vite:
+                asset():
+        Arr: 数组工具类
+            first():
         ServiceProvider:
             boot():
             register():
@@ -159,7 +234,11 @@ Illuminate:
         Component: 自定义组件
             render():
         View:
+    dispatch():
     env():
+    fake():
+    logger():
+    request():
     view():
 ```
 
@@ -196,11 +275,14 @@ Illuminate:
 ```yaml
 Blade指令:
     @auth:
+    @can: 权限校验
+    @cannot:
     @class: css类属性
     @csrf:
     @each: 循环导入其它页面
     @empty:
     @env:
+    @error: 错误校验判断
     @extends: 继承模板
     @for: 列表渲染
     @foreach:
@@ -211,6 +293,7 @@ Blade指令:
     @include: 导入其他页面
     @includeIf:
     @isset:
+    @method: 指定表单方法
     @once:
     @php: php代码
     @production:
@@ -221,6 +304,7 @@ Blade指令:
     @switch:
     @unless:
     @use: 导入php类
+    @vite:
     @while:
     @yield:
 ```
@@ -245,6 +329,8 @@ Blade指令:
 
 
 ### Validation
+
+字段校验错误会在页面传递`$errors`变量
 
 
 ### Error Handling
