@@ -1,7 +1,7 @@
 # Laravel
 
 >
->`#TODO 30 Days to Learn Laravel P21`
+>
 >
 
 ## 基础介绍
