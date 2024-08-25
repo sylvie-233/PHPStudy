@@ -1,6 +1,6 @@
 # PHP
 >
->`#TODO [完结]猫叔2024php8零基础从入门到精通快速入门教程 P12`
+>`#TODO [完结]猫叔2024php8零基础从入门到精通快速入门教程 P16`
 >
 
 ## 基础介绍
@@ -32,6 +32,9 @@ File System Related Extensions:
         fgets(): 从文件中读取一行
         file_exists(): 文件存在判断
         unlink(): 删除文件
+Mathematical Extensions:
+    Math:
+        intdiv():
 Other Basic Extensions:
     SPL:
         spl_autoload_register(): 自定义autoload
@@ -67,6 +70,7 @@ Variable and Type Related Extensions:
     $_SERVER:
     $_SESSION:
     $GLOBALS:
+    PHP_EOL:
 ```
 
 
